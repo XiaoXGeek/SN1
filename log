@@ -1,0 +1,1088 @@
+2018-03-05 19:54:38 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: SN1)
+2018-03-05 19:54:38 [scrapy.utils.log] INFO: Overridden settings: {'LOG_FILE': 'D:\\code\\idea_python\\SN1/log', 'BOT_NAME': 'SN1', 'SPIDER_MODULES': ['SN1.spiders'], 'DUPEFILTER_CLASS': 'SN1.scrapy_redis.dupefilter.RFPDupeFilter', 'SCHEDULER': 'SN1.scrapy_redis.scheduler.Scheduler', 'DOWNLOAD_DELAY': 1, 'NEWSPIDER_MODULE': 'SN1.spiders'}
+2018-03-05 19:54:38 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats']
+2018-03-05 19:54:38 [py.warnings] WARNING: e:\envs\py354scrapy\lib\site-packages\scrapy\utils\deprecate.py:156: ScrapyDeprecationWarning: `scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware` class is deprecated, use `scrapy.downloadermiddlewares.useragent.UserAgentMiddleware` instead
+  ScrapyDeprecationWarning)
+
+2018-03-05 19:54:38 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): passport.weibo.cn
+2018-03-05 19:54:38 [urllib3.connectionpool] DEBUG: https://passport.weibo.cn:443 "POST /sso/login HTTP/1.1" 200 None
+2018-03-05 19:54:38 [root] DEBUG: xiaoxiongyouxiang0@163.com登录成功。
+2018-03-05 19:54:38 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): passport.weibo.cn
+2018-03-05 19:54:39 [urllib3.connectionpool] DEBUG: https://passport.weibo.cn:443 "POST /sso/login HTTP/1.1" 200 None
+2018-03-05 19:54:39 [root] DEBUG: 17186391076登录成功。
+2018-03-05 19:54:39 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): passport.weibo.cn
+2018-03-05 19:54:39 [urllib3.connectionpool] DEBUG: https://passport.weibo.cn:443 "POST /sso/login HTTP/1.1" 429 0
+2018-03-05 19:54:39 [root] DEBUG: 18324414135登录失败。
+2018-03-05 19:54:39 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): passport.weibo.cn
+2018-03-05 19:54:39 [urllib3.connectionpool] DEBUG: https://passport.weibo.cn:443 "POST /sso/login HTTP/1.1" 429 0
+2018-03-05 19:54:39 [root] DEBUG: 15924140191登录失败。
+2018-03-05 19:54:39 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): passport.weibo.cn
+2018-03-05 19:54:39 [urllib3.connectionpool] DEBUG: https://passport.weibo.cn:443 "POST /sso/login HTTP/1.1" 200 None
+2018-03-05 19:54:39 [root] DEBUG: 17304007904登录成功。
+2018-03-05 19:54:39 [urllib3.connectionpool] DEBUG: Starting new HTTPS connection (1): passport.weibo.cn
+2018-03-05 19:54:40 [urllib3.connectionpool] DEBUG: https://passport.weibo.cn:443 "POST /sso/login HTTP/1.1" 200 None
+2018-03-05 19:54:40 [root] DEBUG: 18403893486登录成功。
+2018-03-05 19:54:40 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'SN1.middlewares.RandomUserAgentMiddlware',
+ 'SN1.middlewares.CookieMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2018-03-05 19:54:40 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2018-03-05 19:54:40 [scrapy.middleware] INFO: Enabled item pipelines:
+['SN1.pipelines.MysqlTwistedPipline']
+2018-03-05 19:54:40 [scrapy.core.engine] INFO: Spider opened
+2018-03-05 19:54:40 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2018-03-05 19:54:40 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2018-03-05 19:54:40 [scrapy.utils.signal] ERROR: Error caught on signal handler: <bound method MemoryUsage.engine_started of <scrapy.extensions.memusage.MemoryUsage object at 0x000001C32E87C048>>
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\twisted\internet\defer.py", line 150, in maybeDeferred
+    result = f(*args, **kw)
+  File "e:\envs\py354scrapy\lib\site-packages\pydispatch\robustapply.py", line 55, in robustApply
+    return receiver(*arguments, **named)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\extensions\memusage.py", line 55, in engine_started
+    self.crawler.stats.set_value('memusage/startup', self.get_virtual_size())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\extensions\memusage.py", line 48, in get_virtual_size
+    size = self.resource.getrusage(self.resource.RUSAGE_SELF).ru_maxrss
+AttributeError: module 'resource' has no attribute 'getrusage'
+2018-03-05 19:54:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/1762564234> (referer: None)
+2018-03-05 19:54:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:40 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:41 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1762564234>
+None
+2018-03-05 19:54:41 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/1762564234> (referer: None)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:54:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/600806678> (referer: None)
+2018-03-05 19:54:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/2803273300> (referer: None)
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2803273300>
+None
+2018-03-05 19:54:42 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/2803273300> (referer: None)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:54:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/2162490995> (referer: None)
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2162490995>
+None
+2018-03-05 19:54:44 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/2162490995> (referer: None)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:54:45 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/6136832507> (referer: None)
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6136832507>
+None
+2018-03-05 19:54:45 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/6136832507> (referer: None)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:54:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/2920285932> (referer: None)
+2018-03-05 19:54:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2920285932>
+None
+2018-03-05 19:54:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2920285932>
+None
+2018-03-05 19:54:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2920285932>
+None
+2018-03-05 19:54:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2920285932>
+None
+2018-03-05 19:54:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2920285932>
+None
+2018-03-05 19:54:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2920285932>
+None
+2018-03-05 19:54:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2920285932>
+None
+2018-03-05 19:54:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2920285932>
+None
+2018-03-05 19:54:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2920285932>
+None
+2018-03-05 19:54:47 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/2920285932> (referer: None)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:54:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/2060098870> (referer: None)
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2060098870>
+None
+2018-03-05 19:54:48 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/2060098870> (referer: None)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:54:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/1852429147> (referer: None)
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1852429147>
+None
+2018-03-05 19:54:49 [SN1.scrapy_redis.dupefilter] DEBUG: Filtered duplicate request <GET https://weibo.cn/fly51fly> - no more duplicates will be shown (see DUPEFILTER_DEBUG to show all duplicates)
+2018-03-05 19:54:49 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/1852429147> (referer: None)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:54:50 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/3232338382> (referer: None)
+2018-03-05 19:54:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:50 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:51 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382>
+None
+2018-03-05 19:54:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/6354727884> (referer: None)
+2018-03-05 19:54:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6354727884>
+None
+2018-03-05 19:54:52 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/6354727884>
+None
+2018-03-05 19:54:53 [scrapy.downloadermiddlewares.redirect] DEBUG: Redirecting (meta refresh) to <GET https://weibo.cn/u/3232338382?rand=394914> from <GET https://weibo.cn/u/6303054016>
+2018-03-05 19:54:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/6487225049> (referer: None)
+2018-03-05 19:54:56 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/1258026955> (referer: None)
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1258026955>
+None
+2018-03-05 19:54:56 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/1258026955> (referer: None)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:54:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/1941497637> (referer: None)
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1941497637>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/1941497637> (referer: None)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:54:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/5215758845> (referer: None)
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/5215758845>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/5215758845>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/5215758845>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/5215758845>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/5215758845>
+None
+2018-03-05 19:54:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/5215758845>
+None
+2018-03-05 19:55:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/1244876825> (referer: None)
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:00 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825>
+None
+2018-03-05 19:55:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/2655499314> (referer: None)
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314>
+None
+2018-03-05 19:55:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/bgsxy> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:55:02 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/bgsxy>
+None
+2018-03-05 19:55:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/xiaopapi> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:55:03 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/xiaopapi>
+None
+2018-03-05 19:55:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/hotkidfanclub> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:55:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/hotkidfanclub>
+None
+2018-03-05 19:55:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FA3zkz451#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:55:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FAMBcyrVH#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:55:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FAMBcyrVH>
+None
+2018-03-05 19:55:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FC0xdmiYd#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:55:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FC0xdmiYd>
+None
+2018-03-05 19:55:07 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FC0xdmiYd>
+None
+2018-03-05 19:55:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/F2IpphLEh#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:55:10 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/fly51fly> (referer: https://weibo.cn/u/1852429147)
+2018-03-05 19:55:10 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/fly51fly>
+None
+2018-03-05 19:55:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/seeyouhealth> (referer: https://weibo.cn/u/3232338382)
+2018-03-05 19:55:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/seeyouhealth>
+None
+2018-03-05 19:55:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/3232338382?rand=394914> (referer: None)
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:13 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?rand=394914>
+None
+2018-03-05 19:55:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/3232338382?page=2> (referer: https://weibo.cn/u/3232338382)
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/3232338382?page=2>
+None
+2018-03-05 19:55:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/F8Zpmw2Yl#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:55:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/cctvxinwen> (referer: https://weibo.cn/u/1258026955)
+2018-03-05 19:55:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/cctvxinwen>
+None
+2018-03-05 19:55:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/chuxiaomin> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:55:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/chuxiaomin>
+None
+2018-03-05 19:55:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/EA22fwHFW#rt> (referer: https://weibo.cn/u/1258026955)
+2018-03-05 19:55:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/sinje> (referer: https://weibo.cn/u/1244876825)
+2018-03-05 19:55:21 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/sinje>
+None
+2018-03-05 19:55:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/sonymusic> (referer: https://weibo.cn/u/1244876825)
+2018-03-05 19:55:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/sonymusic>
+None
+2018-03-05 19:55:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/mindbridge> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:55:23 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/mindbridge>
+None
+2018-03-05 19:55:25 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/1244876825?page=2> (referer: https://weibo.cn/u/1244876825)
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/1244876825?page=2>
+None
+2018-03-05 19:55:25 [scrapy.core.scraper] ERROR: Spider error processing <GET https://weibo.cn/u/1244876825?page=2> (referer: https://weibo.cn/u/1244876825)
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\utils\defer.py", line 102, in iter_errback
+    yield next(it)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\offsite.py", line 29, in process_spider_output
+    for x in result:
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\referer.py", line 339, in <genexpr>
+    return (_set_referer(r) for r in result or ())
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\urllength.py", line 37, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\spidermiddlewares\depth.py", line 58, in <genexpr>
+    return (r for r in result or () if _filter(r))
+  File "D:\code\idea_python\SN1\SN1\spiders\sina.py", line 83, in parse_tweets
+    yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
+AttributeError: 'SinaSpider' object has no attribute 'parse_info'
+2018-03-05 19:55:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/u/2655499314?page=2> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/u/2655499314?page=2>
+None
+2018-03-05 19:55:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/EAwALkEp7#rt> (referer: https://weibo.cn/u/5215758845)
+2018-03-05 19:55:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/EDLt8moS3#rt> (referer: https://weibo.cn/u/1258026955)
+2018-03-05 19:55:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/EdK8a9hvB#rt> (referer: https://weibo.cn/u/1258026955)
+2018-03-05 19:55:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Egp3R5rYv#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:55:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/EgsCBDLWK#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:55:33 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/EguNTbUuk#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:55:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Ej4VHka2M#rt> (referer: https://weibo.cn/u/5215758845)
+2018-03-05 19:55:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Ej4YYF5zp#rt> (referer: https://weibo.cn/u/5215758845)
+2018-03-05 19:55:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Ej54mfTBN#rt> (referer: https://weibo.cn/u/5215758845)
+2018-03-05 19:55:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Ej55wC0vd#rt> (referer: https://weibo.cn/u/5215758845)
+2018-03-05 19:55:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Eq0w44GOL#rt> (referer: https://weibo.cn/u/1258026955)
+2018-03-05 19:55:40 [scrapy.extensions.logstats] INFO: Crawled 47 pages (at 47 pages/min), scraped 182 items (at 182 items/min)
+2018-03-05 19:55:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Ew8cxuuqG#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:55:41 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/EyZKF6uIJ#rt> (referer: https://weibo.cn/u/5215758845)
+2018-03-05 19:55:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/F4JZ7gzWg#rt> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:43 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4JZ7gzWg>
+None
+2018-03-05 19:55:44 [scrapy.core.scraper] ERROR: Error downloading <GET https://weibo.cn/repost/F4UfTmB80#rt>
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\twisted\internet\defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "e:\envs\py354scrapy\lib\site-packages\twisted\internet\defer.py", line 1363, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <403 https://weibo.cn/repost/F4UfTmB80>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\twisted\internet\defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\core\downloader\middleware.py", line 56, in process_response
+    (six.get_method_self(method).__class__.__name__, type(response))
+AssertionError: Middleware CookieMiddleware.process_response must return Response or Request, got <class 'NoneType'>
+2018-03-05 19:55:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/shiatzychen> (referer: https://weibo.cn/u/1244876825?page=2)
+2018-03-05 19:55:46 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/shiatzychen>
+None
+2018-03-05 19:55:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/xinshiruyun> (referer: https://weibo.cn/u/1244876825?page=2)
+2018-03-05 19:55:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/xinshiruyun>
+None
+2018-03-05 19:55:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/millionforests> (referer: https://weibo.cn/u/2655499314?page=2)
+2018-03-05 19:55:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/millionforests>
+None
+2018-03-05 19:55:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/F4rFjniyB#rt> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F4rFjniyB>
+None
+2018-03-05 19:55:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/F6uDT4RfL#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:55:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/F7Ttdkbzi#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:55:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/F7ugCojNN#rt> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/F7ugCojNN>
+None
+2018-03-05 19:55:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FC0yI8suY#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:55:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FCnRFp0NQ#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:55:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FDyBN74Km#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:55:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FDyBXpPPa#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:55:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FEBT6rqwF#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:56:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FEKdDxZUH#rt> (referer: https://weibo.cn/u/1852429147)
+2018-03-05 19:56:01 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FEKdDxZUH>
+None
+2018-03-05 19:56:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FFdJUcQvi#rt> (referer: https://weibo.cn/u/1852429147)
+2018-03-05 19:56:03 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fcjm21AYF#rt> (referer: https://weibo.cn/u/1258026955)
+2018-03-05 19:56:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fcudf8XHj#rt> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:56:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fcudf8XHj>
+None
+2018-03-05 19:56:05 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fcudf8XHj>
+None
+2018-03-05 19:56:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FdPWUcJlT#rt> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FdPWUcJlT>
+None
+2018-03-05 19:56:07 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fh1IGm2pF#rt> (referer: https://weibo.cn/u/1258026955)
+2018-03-05 19:56:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fh1ry4FMF#rt> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fh1ry4FMF>
+None
+2018-03-05 19:56:09 [scrapy.core.scraper] ERROR: Error downloading <GET https://weibo.cn/repost/FhGqAAGKe#rt>
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\twisted\internet\defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\core\downloader\middleware.py", line 43, in process_request
+    defer.returnValue((yield download_func(request=request,spider=spider)))
+  File "e:\envs\py354scrapy\lib\site-packages\twisted\internet\defer.py", line 1363, in returnValue
+    raise _DefGen_Return(val)
+twisted.internet.defer._DefGen_Return: <403 https://weibo.cn/repost/FhGqAAGKe>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "e:\envs\py354scrapy\lib\site-packages\twisted\internet\defer.py", line 1386, in _inlineCallbacks
+    result = g.send(result)
+  File "e:\envs\py354scrapy\lib\site-packages\scrapy\core\downloader\middleware.py", line 56, in process_response
+    (six.get_method_self(method).__class__.__name__, type(response))
+AssertionError: Middleware CookieMiddleware.process_response must return Response or Request, got <class 'NoneType'>
+2018-03-05 19:56:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/milari> (referer: https://weibo.cn/repost/F4rFjniyB)
+2018-03-05 19:56:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/milari>
+None
+2018-03-05 19:56:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Figxv1bmY#rt> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:56:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Figxv1bmY>
+None
+2018-03-05 19:56:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Figxv1bmY>
+None
+2018-03-05 19:56:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Figxv1bmY>
+None
+2018-03-05 19:56:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Figxv1bmY>
+None
+2018-03-05 19:56:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Figxv1bmY>
+None
+2018-03-05 19:56:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Figxv1bmY>
+None
+2018-03-05 19:56:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Figxv1bmY>
+None
+2018-03-05 19:56:12 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Figxv1bmY>
+None
+2018-03-05 19:56:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fj22C0sQQ#rt> (referer: https://weibo.cn/u/6354727884)
+2018-03-05 19:56:14 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/ParkLover8387> (referer: https://weibo.cn/repost/F7ugCojNN)
+2018-03-05 19:56:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/ParkLover8387>
+None
+2018-03-05 19:56:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/parkhaejinbar> (referer: https://weibo.cn/repost/F7ugCojNN)
+2018-03-05 19:56:16 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/parkhaejinbar>
+None
+2018-03-05 19:56:17 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/11111111ffffff> (referer: https://weibo.cn/repost/F7ugCojNN)
+2018-03-05 19:56:17 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/11111111ffffff>
+None
+2018-03-05 19:56:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fj22fbnJl#rt> (referer: https://weibo.cn/u/6354727884)
+2018-03-05 19:56:19 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fj6q4A4WG#rt> (referer: https://weibo.cn/u/1258026955)
+2018-03-05 19:56:21 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FprXwebAQ#rt> (referer: https://weibo.cn/u/1258026955)
+2018-03-05 19:56:22 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fq1dGbuuB#rt> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:56:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fq1dGbuuB>
+None
+2018-03-05 19:56:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fq1dGbuuB>
+None
+2018-03-05 19:56:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fq1dGbuuB>
+None
+2018-03-05 19:56:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fq1dGbuuB>
+None
+2018-03-05 19:56:22 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fq1dGbuuB>
+None
+2018-03-05 19:56:23 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FrxXafbMn#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:56:24 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fsk2z4ol4#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:56:26 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FtmyZDJqn#rt> (referer: https://weibo.cn/u/1244876825)
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:26 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FtmyZDJqn>
+None
+2018-03-05 19:56:27 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FwL7z5Vrw#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:56:29 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fwz7jE3lU#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:56:30 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/poor0958> (referer: https://weibo.cn/repost/Fh1ry4FMF)
+2018-03-05 19:56:31 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/poor0958>
+None
+2018-03-05 19:56:31 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fx8hm9s7D#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:56:32 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FxFk7FyZw#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:56:34 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/haejinjiajia> (referer: https://weibo.cn/repost/Figxv1bmY)
+2018-03-05 19:56:34 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/haejinjiajia>
+None
+2018-03-05 19:56:35 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/abigailxiaoxi> (referer: https://weibo.cn/repost/Figxv1bmY)
+2018-03-05 19:56:35 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/abigailxiaoxi>
+None
+2018-03-05 19:56:36 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fy4x0xaAB#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:56:36 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/Fy4x0xaAB>
+None
+2018-03-05 19:56:37 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FyGqnjflx#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:56:37 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/FyGqnjflx>
+None
+2018-03-05 19:56:38 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fyvk9E4N3#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:56:39 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/FzbNovBmS#rt> (referer: https://weibo.cn/u/2162490995)
+2018-03-05 19:56:40 [scrapy.extensions.logstats] INFO: Crawled 93 pages (at 46 pages/min), scraped 273 items (at 91 items/min)
+2018-03-05 19:56:40 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/Fzv6twbS1#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:56:42 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G0D43AmEZ#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:56:43 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G13SmhIf3#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:56:44 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G1ZtGaH6P#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:56:46 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G1ZygqH6z#rt> (referer: https://weibo.cn/u/1852429147)
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G1ZygqH6z>
+None
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G1ZygqH6z>
+None
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G1ZygqH6z>
+None
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G1ZygqH6z>
+None
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G1ZygqH6z>
+None
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G1ZygqH6z>
+None
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G1ZygqH6z>
+None
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G1ZygqH6z>
+None
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G1ZygqH6z>
+None
+2018-03-05 19:56:47 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/seedkenjiwu> (referer: https://weibo.cn/repost/FtmyZDJqn)
+2018-03-05 19:56:47 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/seedkenjiwu>
+None
+2018-03-05 19:56:48 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/zhangshaohan> (referer: https://weibo.cn/repost/FtmyZDJqn)
+2018-03-05 19:56:48 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/zhangshaohan>
+None
+2018-03-05 19:56:49 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/gigileungwingkei> (referer: https://weibo.cn/repost/FtmyZDJqn)
+2018-03-05 19:56:49 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/gigileungwingkei>
+None
+2018-03-05 19:56:51 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G1rJnmEv9#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:56:52 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G1wQB1V2M#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:56:53 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G21jW2Mo3#rt> (referer: https://weibo.cn/u/1852429147)
+2018-03-05 19:56:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G21jW2Mo3>
+None
+2018-03-05 19:56:53 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G21jW2Mo3>
+None
+2018-03-05 19:56:54 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G2402vQ0J#rt> (referer: https://weibo.cn/u/1852429147)
+2018-03-05 19:56:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2402vQ0J>
+None
+2018-03-05 19:56:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2402vQ0J>
+None
+2018-03-05 19:56:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2402vQ0J>
+None
+2018-03-05 19:56:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2402vQ0J>
+None
+2018-03-05 19:56:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2402vQ0J>
+None
+2018-03-05 19:56:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2402vQ0J>
+None
+2018-03-05 19:56:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2402vQ0J>
+None
+2018-03-05 19:56:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2402vQ0J>
+None
+2018-03-05 19:56:54 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2402vQ0J>
+None
+2018-03-05 19:56:55 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G2TUEgQP2#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:56:57 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/cjoj> (referer: https://weibo.cn/repost/Fy4x0xaAB)
+2018-03-05 19:56:57 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/cjoj>
+None
+2018-03-05 19:56:58 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G2VRofVZ2#rt> (referer: https://weibo.cn/u/1852429147)
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:58 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2VRofVZ2>
+None
+2018-03-05 19:56:59 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G2bYe5kV4#rt> (referer: https://weibo.cn/u/1852429147)
+2018-03-05 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2bYe5kV4>
+None
+2018-03-05 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2bYe5kV4>
+None
+2018-03-05 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2bYe5kV4>
+None
+2018-03-05 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2bYe5kV4>
+None
+2018-03-05 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2bYe5kV4>
+None
+2018-03-05 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2bYe5kV4>
+None
+2018-03-05 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2bYe5kV4>
+None
+2018-03-05 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2bYe5kV4>
+None
+2018-03-05 19:56:59 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G2bYe5kV4>
+None
+2018-03-05 19:57:00 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G2duiuRJZ#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:57:01 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G2sek1bfe#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:57:02 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G2t4DgzXa#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:57:04 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G35KgaF3C#rt> (referer: https://weibo.cn/u/2655499314)
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:04 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G35KgaF3C>
+None
+2018-03-05 19:57:05 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G3AyXviRC#rt> (referer: https://weibo.cn/u/1762564234)
+2018-03-05 19:57:06 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/hlqi> (referer: https://weibo.cn/repost/G1ZygqH6z)
+2018-03-05 19:57:06 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/hlqi>
+None
+2018-03-05 19:57:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/rmins> (referer: https://weibo.cn/repost/G1ZygqH6z)
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/rmins>
+None
+2018-03-05 19:57:08 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G3H4tlIyb#rt> (referer: https://weibo.cn/u/1244876825)
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:08 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3H4tlIyb>
+None
+2018-03-05 19:57:09 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G3Jf8axpd#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:57:11 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G3O6Ij7kV#rt> (referer: https://weibo.cn/u/1244876825)
+2018-03-05 19:57:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3O6Ij7kV>
+None
+2018-03-05 19:57:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3O6Ij7kV>
+None
+2018-03-05 19:57:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3O6Ij7kV>
+None
+2018-03-05 19:57:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3O6Ij7kV>
+None
+2018-03-05 19:57:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3O6Ij7kV>
+None
+2018-03-05 19:57:11 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3O6Ij7kV>
+None
+2018-03-05 19:57:12 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G3SgUltiC#rt> (referer: https://weibo.cn/u/2060098870)
+2018-03-05 19:57:13 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/ksearch> (referer: https://weibo.cn/repost/G21jW2Mo3)
+2018-03-05 19:57:14 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/ksearch>
+None
+2018-03-05 19:57:15 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/leoh> (referer: https://weibo.cn/repost/G2402vQ0J)
+2018-03-05 19:57:15 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/leoh>
+None
+2018-03-05 19:57:16 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G3SzpbEkc#rt> (referer: https://weibo.cn/u/1941497637)
+2018-03-05 19:57:17 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2018-03-05 19:57:17 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2018-03-05 19:57:18 [scrapy.core.engine] DEBUG: Crawled (200) <GET https://weibo.cn/repost/G3TgQg9rV#rt> (referer: https://weibo.cn/u/6136832507)
+2018-03-05 19:57:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3TgQg9rV>
+None
+2018-03-05 19:57:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3TgQg9rV>
+None
+2018-03-05 19:57:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3TgQg9rV>
+None
+2018-03-05 19:57:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3TgQg9rV>
+None
+2018-03-05 19:57:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3TgQg9rV>
+None
+2018-03-05 19:57:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3TgQg9rV>
+None
+2018-03-05 19:57:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3TgQg9rV>
+None
+2018-03-05 19:57:18 [scrapy.core.scraper] DEBUG: Scraped from <200 https://weibo.cn/repost/G3TgQg9rV>
+None
+2018-03-05 19:57:18 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
