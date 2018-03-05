@@ -52,7 +52,7 @@ DOWNLOAD_DELAY = 1  # 间隔时间
 LOG_LEVEL = 'DEBUG'
 LOG_FILE = BASE_DIR + "/log"
 # 设置scrapy_redis去重队列和请求队列
-# 关系爬取用1，微博爬取用2
+# 关系爬取用1，微博爬取用3
 REDIS_PARAMS = {
    'host': "10.18.51.54",
    'port': 6379,
