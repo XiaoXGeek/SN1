@@ -38,6 +38,7 @@ class SinaSpider(scrapy.Spider):
         1. 解析follow页面，获取uid，发起获取info请求
         2. 请求下一页关注列表
         3. 请求fans页面首页
+
         """
         uid = response.meta["uid"]
         for rep in response.xpath("//table"):
