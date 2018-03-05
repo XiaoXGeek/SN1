@@ -50,21 +50,25 @@ DOWNLOAD_DELAY = 1  # 间隔时间
 
 # 设置日志级别
 LOG_LEVEL = 'DEBUG'
-
+LOG_FILE = BASE_DIR + "/log"
 # 设置scrapy_redis去重队列和请求队列
+# 关系爬取用1，微博爬取用2
 REDIS_PARAMS = {
    'host': "10.18.51.54",
    'port': 6379,
-   'db': 1
+   'db': 3
 }
 
 # cookie的redis连接配置
+# 关系爬取用2，微博爬取用4
 COOKIE_REDIS_HOST = "10.18.51.54"
 COOKIE_REDIS_PORT = 6379
-COOKIE_REDIS_DB = 2
+COOKIE_REDIS_DB = 4
 
 # MySQL数据库连接配置
 MYSQL_HOST = "10.18.57.110"
 MYSQL_DBNAME = "db_sn1"
 MYSQL_USER = "root"
 MYSQL_PASSWORD = "root_123a"
+
+print(BASE_DIR)

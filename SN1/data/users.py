@@ -14,7 +14,7 @@
 import re
 
 
-# 筛选出所有user
+# 解析爬取列表，供follows和tweets使用
 def follow(users, follows, follows_new):
     users_id = ['1891502860', '1288739185', '1772191555', '1898495494', '2406523251', '5584871802', '5972903864','3191340984', '5087591810', '3195810885']
     users = open(users, 'r')
