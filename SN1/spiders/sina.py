@@ -79,9 +79,7 @@ class SinaSpider(scrapy.Spider):
         # 转发的微博提取出来，放入请求队列
         for rep in response.xpath("//span[@class='cmt']//a[contains(@href,'https://weibo.cn/')]"):
             rt_uid = rep.xpath("./@href").extract_first().split("/")[-1]
-            if re.match(r"^[0-9]*$", rt_uid) is not None:
-                yield Request(url="https://weibo.cn/%s/info" % rt_uid, callback=self.parse_info, meta={'uid': rt_uid})
-            else:
+            if re.match(r"^[0-9]*$", rt_uid) is None:
                 yield Request(url="https://weibo.cn/%s" % rt_uid, callback=self.parse_charuid, meta={'uid': rt_uid})
         page_num_ = response.css("#pagelist").extract_first()
         if page_num_ is not None:
