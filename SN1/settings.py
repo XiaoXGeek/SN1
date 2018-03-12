@@ -51,7 +51,7 @@ DOWNLOAD_DELAY = 1  # 间隔时间
 # 设置日志级别
 LOG_LEVEL = 'DEBUG'
 # 设置scrapy_redis去重队列和请求队列
-# 关系爬取用1，微博爬取用3
+# 关系爬取用1，微博爬取用3，inners爬取用5
 REDIS_PARAMS = {
    'host': "10.18.51.54",
    'port': 6379,
@@ -59,7 +59,7 @@ REDIS_PARAMS = {
 }
 
 # cookie的redis连接配置
-# 关系爬取用2，微博爬取用4
+# 关系爬取用2，微博爬取用4，inners爬取用5
 COOKIE_REDIS_HOST = "10.18.51.54"
 COOKIE_REDIS_PORT = 6379
 COOKIE_REDIS_DB = 4
