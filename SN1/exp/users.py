@@ -12,6 +12,7 @@
 @time: 2018/3/5 14:26
 """
 import re
+import random
 
 
 # 解析爬取列表，供follows和tweets使用
@@ -207,6 +208,31 @@ def simrank_link(follows, user_matrix_follow):
     user_matrix.close()
 
 
+# 保留与选中用户的所有关系
+def simrank_link2(follows_simrank_pre_r, follows_simrank_pre_w, follow_inner_fan):
+    pre_r = open(follows_simrank_pre_r, 'r')
+    pre_w = open(follows_simrank_pre_w, 'w')
+    inner = open(follow_inner_fan, 'r')
+    inners = set()
+    all_user = set()
+    for line in inner:
+        inners.add(line.strip())
+    for line in pre_r:
+        arr = line.strip().split()
+        all_user.add(arr[0])
+        if arr[0] in inners:
+            for i in range(1, len(arr)):
+                all_user.add(arr[i])
+    pre_r.seek(0)
+    for line in pre_r:
+        arr = line.strip().split()
+        if arr[0] in all_user:
+            pre_w.write(line)
+    pre_r.close()
+    pre_w.close()
+    inner.close()
+
+
 # 对fans和follows取交集
 def follows_inner_fans(follows, fans, follows_in_fans, follow_length=10, fan_length=10):
     follows = open(follows, 'r')
@@ -262,8 +288,8 @@ def pass_follow_fan(follows, follows_new, fans, fans_new, inter):
     inter.close()
 
 
-# 选择要预测用户
-def chose_user(relations, relation_new, inner, user_choose, num):
+# 随机选择要预测用户
+def chose_user(relations, relation_new, inner, user_choose, choose_rate):
     relations = open(relations, 'r')
     relation_new = open(relation_new, 'w')
     inner = open(inner, 'r')
@@ -276,13 +302,20 @@ def chose_user(relations, relation_new, inner, user_choose, num):
         if arr[0] in inners:
             user_choose_line = arr[0]
             left_line = arr[0]
+            # 随机选择用户
+            choose_num = int(choose_rate * (len(arr)-1))
+            choose_set = set()
+            while len(choose_set) < choose_num:
+                choose_set.add(random.randint(1, (len(arr)-1)))
             for i in range(1, len(arr)):
-                if i <= num:
+                if i in choose_set:
                     user_choose_line = user_choose_line + '\t' + arr[i]
                 else:
                     left_line = left_line + '\t' + arr[i]
             relation_new.write(left_line + '\n')
             user_choose.write(user_choose_line + '\n')
+        else:
+            relation_new.write(line)
     user_choose.close()
     inner.close()
     relation_new.close()

@@ -12,10 +12,10 @@
 @time: 2018/3/9 9:35
 """
 import os
-import SN1.data.simrank.square_cache_simrank_py3 as simr
-import SN1.data.nmf.data_pre as nmf
-import SN1.data.users as user
-import SN1.data.analysis as analysis
+import SN1.exp.simrank.square_cache_simrank_py3 as simr
+import SN1.exp.nmf.data_pre as nmf
+import SN1.exp.users as user
+import SN1.exp.analysis as analysis
 
 
 bathpath="F:\社交网络\微博\论文\实验\实验数据\\resource\\20180309"
@@ -33,7 +33,7 @@ def data_pre():
     # 0.2: 生成fans和follows的详细的关注列表
     follows_detail = bathpath + "/data_pre/follows_detail.txt"
     fans_detail = bathpath + "/data_pre/fans_detail.txt"
-    follow_filter_num = 10
+    follow_filter_num = 0
     fan_filter_num = 10
     print("1.2.1 生成follow的详细信息...")
     user.follow(relation_rp_char, follows_detail, follow_filter_num)
@@ -48,19 +48,21 @@ def data_pre():
     user.simrank_link(fans_detail, fans_simrank_pre)
     # 0.4: follow和fan的交集
     follow_inner_fan = bathpath + "/simrank/pre/follow_inner_fan.txt"
+    follows_simrank_pre_all = bathpath + "/simrank/pre/follows_simrank_pre_all.txt"
+    user.simrank_link2(follows_simrank_pre, follows_simrank_pre_all, follow_inner_fan)
     print("1.4 生成follow和fan的交集...")
-    user.follows_inner_fans(follows_simrank_pre, fans_simrank_pre, follow_inner_fan)
+    # user.follows_inner_fans(follows_simrank_pre, fans_simrank_pre, follow_inner_fan)
     print("数据预处理完成")
 
 
-# 选择要去除的用户
-def chose_user(relation, num=3):
+# 随机选择要去除的用户
+def chose_user(relation, choose_rate=0.2):
     print("选择用户开始...")
     inner = bathpath + "/simrank/pre/follow_inner_fan.txt"
-    relation_graphFile_before = bathpath + "/simrank/pre/%s_simrank_pre.txt" % relation
-    relation_graphFile_after = bathpath + "/simrank/pre/%s_simrank_pre_after_chose.txt" % relation
-    user_choose = bathpath + "/simrank/pre/%s_simrank_pre_choose.txt" % relation
-    user.chose_user(relation_graphFile_before, relation_graphFile_after, inner, user_choose, num)
+    relation_graphFile_before = bathpath + "/simrank/pre/%s_simrank_pre_all.txt" % relation
+    relation_graphFile_after = bathpath + "/simrank/pre/%s_simrank_pre_all_after_chose.txt" % relation
+    user_choose = bathpath + "/simrank/pre/%s_simrank_pre_all_choose.txt" % relation
+    user.chose_user(relation_graphFile_before, relation_graphFile_after, inner, user_choose, choose_rate)
     print("选择用户结束...")
 
 
@@ -68,7 +70,7 @@ def simrank(relation, maxIteration = 10):
     print("step 2: simrank开始...")
     # 2.1 执行simrank
     print("2.1 执行%s simrank" % relation)
-    relation_graphFile = bathpath + "/simrank/pre/%s_simrank_pre_after_chose.txt"
+    relation_graphFile = bathpath + "/simrank/pre/%s_simrank_pre_all_after_chose.txt"
     relation_sim_node_file = bathpath + "/simrank/result/iterator_%d/%s_simrank_result.txt"
     if not os.path.exists('/'.join((relation_sim_node_file % (maxIteration, relation)).split("/" or "\\")[:-1])):
         os.makedirs('/'.join((relation_sim_node_file % (maxIteration, relation)).split("/" or "\\")[:-1]))
@@ -107,7 +109,7 @@ if __name__ == '__main__':
     maxIteration = 3
     relation = "follows"
     # 随机选取的用户数
-    choose_user_num = 0
+    choose_rate = 0.2
     # 推荐的用户数
     recommand_num = 1000
 
@@ -115,15 +117,15 @@ if __name__ == '__main__':
     # data_pre()
 
     # step 1: 随机去掉几个用户
-    # chose_user(relation, choose_user_num)
+    # chose_user(relation, choose_rate)
 
     # step 2: simRank
     # # step 2.1: 执行follows simrank
-    # simrank(relation, maxIteration)
+    simrank(relation, maxIteration)
     # step 2.2: 执行fans simrank
     # simrank(relation, maxIteration)
     # step 3: 运行nmf
     # nmf_pre(maxIteration, relation)
 
     # step 4: 数据分析
-    simrank_anysis(relation, maxIteration, recommand_num)
+    # simrank_anysis(relation, maxIteration, recommand_num)

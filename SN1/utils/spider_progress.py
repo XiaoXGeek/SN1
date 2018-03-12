@@ -12,7 +12,8 @@
 @time: 2018/3/12 10:43
 """
 import pymysql.cursors
-from SN1.weiboID import inners
+import time
+import sys
 
 
 # 查看爬虫进度
@@ -61,16 +62,48 @@ def not_scraw():
     follow_inner_fan.close()
 
 
-if __name__ == '__main__':
-    # 获取当前爬取的微博的uid
-    mysql_tweet_uid = "SELECT DISTINCT tweet_uid FROM tweets;"
+# 爬虫的进度
+def progress():
+    # tweet的爬取进度
+    mysql_tweet_uid = "SELECT COUNT(DISTINCT tweet_uid) as crawl_num FROM tweets;"
     tweet_uid_map = mysql_utils(mysql_tweet_uid, None)
-    tweet_uid = []
-    for ele in tweet_uid_map:
-        tweet_uid.append(ele['tweet_uid'])
-    inners = list(inners)
-    for ele in tweet_uid:
-        for i in range(len(inners)):
-            if ele == inners[i]:
-                print(i)
-                break
+    return tweet_uid_map[0]['crawl_num']
+    # print("tweet完成进度:%s/425" % (tweet_uid_map[0]['crawl_num']))
+
+
+def lcr_progress(lcr):
+    mysql_tweet_num = "SELECT COUNT(DISTINCT tweet_id_real) AS tweet_num FROM tweets;"
+    mysql_tweet_num = mysql_utils(mysql_tweet_num, None)
+    lcr_tweet_num = "SELECT COUNT(DISTINCT %s_tweet_id_real) AS crawl_tweet_num FROM %ss;" % (lcr, lcr)
+    lcr_tweet_num = mysql_utils(lcr_tweet_num, None)
+    return (lcr, lcr_tweet_num[0]['crawl_tweet_num'], mysql_tweet_num[0]['tweet_num'])
+    # print("%s完成进度:%s/%s" % (lcr, lcr_tweet_num[0]['crawl_tweet_num'], mysql_tweet_num[0]['tweet_num']))
+
+
+if __name__ == '__main__':
+    tweet_old = 0
+    like_old = ('0', '0', '0')
+    comment_old = ('0', '0', '0')
+    retweet_old = ('0', '0', '0')
+    while True:
+        tweet = progress()
+        like = lcr_progress("like")
+        comment = lcr_progress("comment")
+        retweet = lcr_progress("retweet")
+        tm = time.localtime(time.time())
+        now_time = "%s年%s月%s日%s:%s" % (tm.tm_year, tm.tm_mon, tm.tm_mday, tm.tm_hour, tm.tm_min)
+        content = "\r%s\ttweet完成进度:%s/425-->%s/425\t" \
+                  "%s完成进度:%s/%s-->%s/%s\t%s完成进度:%s/%s-->%s/%s\t" \
+                  "%s完成进度:%s/%s-->%s/%s" \
+                  % (now_time,
+                     tweet_old, tweet,
+                     like[0], like_old[1], like_old[2], like[1], like[2],
+                     comment[0], comment_old[1], comment_old[2], comment[1], comment[2],
+                     retweet[0], retweet_old[1], retweet_old[2], retweet[1], retweet[2])
+        tweet_old = tweet
+        like_old = like
+        comment_old = comment
+        retweet_old = retweet
+        sys.stdout.write(content)
+        sys.stdout.flush()
+        time.sleep(5*60)

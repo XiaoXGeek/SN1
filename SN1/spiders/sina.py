@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from SN1.weiboID import weiboID
+from SN1.weiboID import weiboID, inners
 import re
 from scrapy.http import Request
 from SN1.items import WeiboItemLoader, UsersItem, TweetsItem, LikesItem, RetweetsItem, CommentsItem
@@ -11,7 +11,8 @@ class SinaSpider(scrapy.Spider):
     name = 'sina'
     allowed_domains = ['weibo.cn']
     redis_key = "sinaLogin:start_urls"
-    start_urls = list(weiboID)
+    # start_urls = list(weiboID)
+    start_urls = list(inners)
 
     def start_requests(self):
         for uid in self.start_urls:
@@ -68,13 +69,16 @@ class SinaSpider(scrapy.Spider):
             weibo_item = item_loader.load_item()
             yield weibo_item
             # 微博的点赞
-            yield Request(url="https://weibo.cn/attitude/%s?#attitude" % tweet_id_real, callback=self.parse_likes,
-                          meta={'tweet_id_real': tweet_id_real})
+            if tweet_like_real != 0:
+                yield Request(url="https://weibo.cn/attitude/%s?#attitude" % tweet_id_real, callback=self.parse_likes,
+                              meta={'tweet_id_real': tweet_id_real})
             # 微博的评论
-            yield Request(url="https://weibo.cn/comment/%s?#cmtfrm" % tweet_id_real, callback=self.parse_comments,
+            if tweet_comment_real != 0:
+                yield Request(url="https://weibo.cn/comment/%s?#cmtfrm" % tweet_id_real, callback=self.parse_comments,
                           meta={'tweet_id_real': tweet_id_real})
             # 微博的转发
-            yield Request(url="https://weibo.cn/repost/%s?#rt" % tweet_id_real, callback=self.parse_retweets,
+            if tweet_rt_real != 0:
+                yield Request(url="https://weibo.cn/repost/%s?#rt" % tweet_id_real, callback=self.parse_retweets,
                           meta={'tweet_id_real': tweet_id_real})
         # 转发的微博提取出来，放入请求队列
         for rep in response.xpath("//span[@class='cmt']//a[contains(@href,'https://weibo.cn/')]"):
