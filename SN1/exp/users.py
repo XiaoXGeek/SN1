@@ -233,6 +233,31 @@ def simrank_link2(follows_simrank_pre_r, follows_simrank_pre_w, follow_inner_fan
     inner.close()
 
 
+# 只保留follow
+def simrank_link_follow(follows_simrank_pre_r, follows_simrank_pre_w, follow_inner_fan):
+    pre_r = open(follows_simrank_pre_r, 'r')
+    pre_w = open(follows_simrank_pre_w, 'w')
+    inner = open(follow_inner_fan, 'r')
+    inners = set()
+    all_user = set()
+    for line in inner:
+        inners.add(line.strip())
+    for line in pre_r:
+        arr = line.strip().split()
+        all_user.add(arr[0])
+        if arr[0] in inners:
+            for i in range(1, len(arr)):
+                all_user.add(arr[i])
+    pre_r.seek(0)
+    for line in pre_r:
+        arr = line.strip().split()
+        if arr[0] in all_user:
+            pre_w.write(line)
+    pre_r.close()
+    pre_w.close()
+    inner.close()
+
+
 # 对fans和follows取交集
 def follows_inner_fans(follows, fans, follows_in_fans, follow_length=10, fan_length=10):
     follows = open(follows, 'r')
@@ -289,7 +314,7 @@ def pass_follow_fan(follows, follows_new, fans, fans_new, inter):
 
 
 # 随机选择要预测用户
-def chose_user(relations, relation_new, inner, user_choose, choose_rate):
+def chose_user_random(relations, relation_new, inner, user_choose, choose_rate):
     relations = open(relations, 'r')
     relation_new = open(relation_new, 'w')
     inner = open(inner, 'r')
@@ -307,6 +332,39 @@ def chose_user(relations, relation_new, inner, user_choose, choose_rate):
             choose_set = set()
             while len(choose_set) < choose_num:
                 choose_set.add(random.randint(1, (len(arr)-1)))
+            for i in range(1, len(arr)):
+                if i in choose_set:
+                    user_choose_line = user_choose_line + '\t' + arr[i]
+                else:
+                    left_line = left_line + '\t' + arr[i]
+            relation_new.write(left_line + '\n')
+            user_choose.write(user_choose_line + '\n')
+        else:
+            relation_new.write(line)
+    user_choose.close()
+    inner.close()
+    relation_new.close()
+    relations.close()
+
+
+# 选取前几个用户
+def choose_user(relations, relation_new, inner, user_choose, choose_num):
+    relations = open(relations, 'r')
+    relation_new = open(relation_new, 'w')
+    inner = open(inner, 'r')
+    user_choose = open(user_choose, 'w')
+    inners = []
+    for line in inner:
+        inners.append(line.strip())
+    for line in relations:
+        arr = line.strip().split()
+        if arr[0] in inners:
+            user_choose_line = arr[0]
+            left_line = arr[0]
+            # 随机选择用户
+            choose_set = set()
+            for j in range(1, choose_num+1):
+                choose_set.add(j)
             for i in range(1, len(arr)):
                 if i in choose_set:
                     user_choose_line = user_choose_line + '\t' + arr[i]
